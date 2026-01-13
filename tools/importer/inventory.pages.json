@@ -1,0 +1,268 @@
+{
+  "templates": [
+    {
+      "name": "\"Video Content Showcase\"",
+      "cluster": 1,
+      "pages": [
+        {
+          "url": "https://darkfantasycreations.com/recipes.html",
+          "uuid": "c96b20c79bc7ed9e487629a46828550e94128fd2"
+        },
+        {
+          "url": "https://darkfantasycreations.com/our-products.html",
+          "uuid": "e726439b57067cb9235f0bf1f9787b3c53fa0c57"
+        },
+        {
+          "url": "https://darkfantasycreations.com/FantasyZarooriHai.html",
+          "uuid": "2143c93cc2b39f8b486c7608f81a59674c2afae3"
+        },
+        {
+          "url": "https://darkfantasycreations.com/df-tiffin-box-pranita.html",
+          "uuid": "ef3161ddd678a74eee93f3c137f5c188863f3945"
+        },
+        {
+          "url": "https://darkfantasycreations.com/srk-poem.html",
+          "uuid": "600b5ad1b4b4254ac0954a0305bf52de315617bc"
+        },
+        {
+          "url": "https://darkfantasycreations.com/df-ttifin-box-sameera.html",
+          "uuid": "26d204d0ad4014dfe4bb8a30674e37a4a28f04de"
+        }
+      ]
+    },
+    {
+      "name": "Product Showcase Template",
+      "cluster": 2,
+      "pages": [
+        {
+          "url": "https://darkfantasycreations.com/faqs.html",
+          "uuid": "39f8d9e9dd3838b215027d1785c08be361e6cc04"
+        },
+        {
+          "url": "https://darkfantasycreations.com/contact-us.html",
+          "uuid": "4ab7a94d65244cf9c66d89080e3c975139b4f475"
+        },
+        {
+          "url": "https://darkfantasycreations.com/terms-of-use.html",
+          "uuid": "2fede9fb31402a3fc273ceed35619f02f54ca793"
+        },
+        {
+          "url": "https://darkfantasycreations.com/sitemap.html",
+          "uuid": "e73222558ab697fd11e3e8369b21a904807e4807"
+        },
+        {
+          "url": "https://darkfantasycreations.com/privacy-policy.html",
+          "uuid": "d9de52ba9aeb1f55d7d62a7285c05cbd80bb6bcb"
+        },
+        {
+          "url": "https://darkfantasycreations.com/dark-fantasy-desserts.html",
+          "uuid": "d50c29494ba0c73615f48dd6db54ee1b0e744bea"
+        },
+        {
+          "url": "https://darkfantasycreations.com/error_page.html",
+          "uuid": "2ad3bd38857d58de3ea6e8b09e55df71b09f9579"
+        },
+        {
+          "url": "https://darkfantasycreations.com/terms-and-conditions.html",
+          "uuid": "d352195f484d5f4977afde8ad577f145126b277c"
+        },
+        {
+          "url": "https://darkfantasycreations.com/dark-fantasy-tiffin-box.html",
+          "uuid": "ebc17deaf46cc9717aa5a971a1e8a94dc42e8871"
+        }
+      ]
+    },
+    {
+      "name": "Media Showcase Template",
+      "cluster": 3,
+      "pages": [
+        {
+          "url": "https://darkfantasycreations.com/recipes/coffee-fills-pound-cake-with-mocha-cream.html",
+          "uuid": "5c060fccf3b8ad9d9a193e878885537b787b845a"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/dark-fantasy-cookies-and-cream-roulade.html",
+          "uuid": "cf01e289662317ea8021350eb8218527940a474c"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/coffee-fills-and-sweet-basil-shake.html",
+          "uuid": "c79f2062eceedeb94edae297d8c450f3363872c9"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-chunky-milkshake.html",
+          "uuid": "4c77d9f10fe9c68b4a7f620a06d21738bcd8cdd7"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-mousse.html",
+          "uuid": "9645ffbd1d94d3d0a4a5621fca6de8c51c11cd17"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/traveller-s-cake-with-figs-and-amaranth.html",
+          "uuid": "77e292ea1d32e1fde47dc527f83002be266fce33"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/choco-fills-peanut-butter-and-salted-caramekl-fluff.html",
+          "uuid": "55c451b60a654694605e14b791dfe6e07796e6a2"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/dark-fantasy-white-forest-cake.html",
+          "uuid": "f916f990987e4a7d64576123a9c46f3de906d280"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/choco-fills-cupcake-with-cookie-cream-frosting.html",
+          "uuid": "61bd8538eff29cc091b027828bd9777e03b1e6c7"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-white-chocolate-fudge.html",
+          "uuid": "4bbe733fef6f67a7c1487cedb7dc590a7daed19c"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-ice-cream-sandwich.html",
+          "uuid": "2db820ff0187d241058ab5e177cf1a98595688ed"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-jar-dessert.html",
+          "uuid": "bb961ed9fe3b85a12cb78146d893dfde52c3a408"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-kulfi.html",
+          "uuid": "f2675fa5456b241e53e710435b99d76318c3a3b4"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/dark-fantasy-barfi.html",
+          "uuid": "7e04d969b189867d03a3da58deb0a32334701e7a"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-salted-caramel-tart.html",
+          "uuid": "00911db4dcadebeeb589d50ee6f508cb7440b1e4"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-parfait.html",
+          "uuid": "72ca26ad90a7d1e8d60143eb6680d1f477d6928d"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-gujiya.html",
+          "uuid": "970d719b1a6e87a456a56c7a5e3b38753fc3713b"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/tiramisu-with-dark-fantasy-chocofills.html",
+          "uuid": "aee10bfb2134ff17cda0d7ee7b511c7a350123df"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-kheer.html",
+          "uuid": "b7fb3ecf45d14304d167b7e7216e054ebff2a0d2"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-chakkara-pongal.html",
+          "uuid": "d4d012607da9dea51523fca3bdfd67d5e3ed591d"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-brownies.html",
+          "uuid": "4a0e0d9ce7ae322d3532907436a913ea22f29b62"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-mug-cake.html",
+          "uuid": "bab7523d173486061040ec076c1bc3b0ec37090e"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-cupcakes.html",
+          "uuid": "7e7431e646be578ff6ec4a0c96387e3494ae37ae"
+        },
+        {
+          "url": "https://darkfantasycreations.com/recipes/spiced-date-pudding-with-choco-fills.html",
+          "uuid": "8b919c97e8a40cde6f5f6913601a9d4a5f3c4ccf"
+        }
+      ]
+    },
+    {
+      "name": "Gallery Showcase",
+      "cluster": 4,
+      "pages": [
+        {
+          "url": "https://darkfantasycreations.com/our-products/more/choco-creme.html",
+          "uuid": "f2c758f6353416595cf1b5b296f5d5dce205c020"
+        },
+        {
+          "url": "https://darkfantasycreations.com/our-products/more/df-shake.html",
+          "uuid": "f001447bacbdf15c5e790fbbed26e86c55bf0582"
+        },
+        {
+          "url": "https://darkfantasycreations.com/our-products/more/vanilla-creme.html",
+          "uuid": "54f69cb750fff95118eb5067efe0e4359391fc6b"
+        },
+        {
+          "url": "https://darkfantasycreations.com/our-products/more/choco-chip.html",
+          "uuid": "75fed460e096d6c02564e6a2c16d36965435840e"
+        },
+        {
+          "url": "https://darkfantasycreations.com/our-products/more/bourbon.html",
+          "uuid": "3fe6dd4d9b08f2a4450076f956911d85afda3360"
+        },
+        {
+          "url": "https://darkfantasycreations.com/our-products/more/yumfills-pie.html",
+          "uuid": "31fc27ef3f6b37c64d9826ed6b5e158675007dfe"
+        }
+      ]
+    },
+    {
+      "name": "Product Listing Page",
+      "cluster": 5,
+      "pages": [
+        {
+          "url": "https://darkfantasycreations.com/our-products/fills/coffee-fills.html",
+          "uuid": "169a22aa9173750070b87eb2a9ba591aec280a90"
+        },
+        {
+          "url": "https://darkfantasycreations.com/our-products/fills/vanilla-fills.html",
+          "uuid": "273b812caf337b19a4e1562840c256b8fd5beec8"
+        },
+        {
+          "url": "https://darkfantasycreations.com/our-products/fills/choco-fills.html",
+          "uuid": "c6b980f4ee6235117400c7dfbdbfdae2252e79f0"
+        },
+        {
+          "url": "https://darkfantasycreations.com/our-products/fills/choco-nut-fills.html",
+          "uuid": "b6186b440866da8b4033dece7f474c347c194493"
+        },
+        {
+          "url": "https://darkfantasycreations.com/our-products/fills/big-fills.html",
+          "uuid": "65fa46df9d1912ddb01264085d1052138a65294c"
+        }
+      ]
+    },
+    {
+      "name": "Video Streaming Template",
+      "cluster": 6,
+      "pages": [
+        {
+          "url": "https://darkfantasycreations.com/our-products/desserts/choco-nut-dipped.html",
+          "uuid": "5b168386c5274a94cd87a0fe4708d69088993ce2"
+        },
+        {
+          "url": "https://darkfantasycreations.com/our-products/desserts/choco-chunks.html",
+          "uuid": "918e0734045b3cd8433052cc5fda6646dbd9af90"
+        }
+      ]
+    },
+    {
+      "name": "Media Showcase",
+      "cluster": 7,
+      "pages": [
+        {
+          "url": "https://darkfantasycreations.com/home.html",
+          "uuid": "bf9681db475c14ece0ef20ab4825e39383491ee0"
+        }
+      ]
+    },
+    {
+      "name": "Media Showcase Template",
+      "cluster": 8,
+      "pages": [
+        {
+          "url": "https://darkfantasycreations.com/",
+          "uuid": "fb0e3a61b73c9d92362c9ac0fc4f48c230054f70"
+        }
+      ]
+    }
+  ]
+}
