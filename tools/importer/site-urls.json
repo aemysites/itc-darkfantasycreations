@@ -1,0 +1,360 @@
+{
+  "originUrl": "https://darkfantasycreations.com",
+  "aborted": false,
+  "lastCrawled": "https://darkfantasycreations.com/",
+  "urls": [
+    {
+      "url": "https://darkfantasycreations.com/",
+      "source": "SITEMAPS",
+      "targetPath": "/",
+      "id": "fb0e3a61b73c9d92362c9ac0fc4f48c230054f70"
+    },
+    {
+      "url": "https://darkfantasycreations.com/contact-us.html",
+      "source": "SITEMAPS",
+      "targetPath": "/contact-us",
+      "id": "4ab7a94d65244cf9c66d89080e3c975139b4f475"
+    },
+    {
+      "url": "https://darkfantasycreations.com/dark-fantasy-desserts.html",
+      "source": "SITEMAPS",
+      "targetPath": "/dark-fantasy-desserts",
+      "id": "d50c29494ba0c73615f48dd6db54ee1b0e744bea"
+    },
+    {
+      "url": "https://darkfantasycreations.com/dark-fantasy-tiffin-box.html",
+      "source": "SITEMAPS",
+      "targetPath": "/dark-fantasy-tiffin-box",
+      "id": "ebc17deaf46cc9717aa5a971a1e8a94dc42e8871"
+    },
+    {
+      "url": "https://darkfantasycreations.com/df-tiffin-box-pranita.html",
+      "source": "SITEMAPS",
+      "targetPath": "/df-tiffin-box-pranita",
+      "id": "ef3161ddd678a74eee93f3c137f5c188863f3945"
+    },
+    {
+      "url": "https://darkfantasycreations.com/df-ttifin-box-sameera.html",
+      "source": "SITEMAPS",
+      "targetPath": "/df-ttifin-box-sameera",
+      "id": "26d204d0ad4014dfe4bb8a30674e37a4a28f04de"
+    },
+    {
+      "url": "https://darkfantasycreations.com/error_page.html",
+      "source": "SITEMAPS",
+      "targetPath": "/error-page",
+      "id": "2ad3bd38857d58de3ea6e8b09e55df71b09f9579"
+    },
+    {
+      "url": "https://darkfantasycreations.com/FantasyZarooriHai.html",
+      "source": "SITEMAPS",
+      "targetPath": "/fantasyzaroorihai",
+      "id": "2143c93cc2b39f8b486c7608f81a59674c2afae3"
+    },
+    {
+      "url": "https://darkfantasycreations.com/faqs.html",
+      "source": "SITEMAPS",
+      "targetPath": "/faqs",
+      "id": "39f8d9e9dd3838b215027d1785c08be361e6cc04"
+    },
+    {
+      "url": "https://darkfantasycreations.com/home.html",
+      "source": "SITEMAPS",
+      "targetPath": "/home",
+      "id": "bf9681db475c14ece0ef20ab4825e39383491ee0"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products.html",
+      "source": "SITEMAPS",
+      "targetPath": "/our-products",
+      "id": "e726439b57067cb9235f0bf1f9787b3c53fa0c57"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/desserts/choco-chunks.html",
+      "source": "SITEMAPS",
+      "targetPath": "/our-products/desserts/choco-chunks",
+      "id": "918e0734045b3cd8433052cc5fda6646dbd9af90"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/desserts/choco-nut-dipped.html",
+      "source": "SITEMAPS",
+      "targetPath": "/our-products/desserts/choco-nut-dipped",
+      "id": "5b168386c5274a94cd87a0fe4708d69088993ce2"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/fills/big-fills.html",
+      "source": "SITEMAPS",
+      "targetPath": "/our-products/fills/big-fills",
+      "id": "65fa46df9d1912ddb01264085d1052138a65294c"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/fills/choco-fills.html",
+      "source": "SITEMAPS",
+      "targetPath": "/our-products/fills/choco-fills",
+      "id": "c6b980f4ee6235117400c7dfbdbfdae2252e79f0"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/fills/choco-nut-fills.html",
+      "source": "SITEMAPS",
+      "targetPath": "/our-products/fills/choco-nut-fills",
+      "id": "b6186b440866da8b4033dece7f474c347c194493"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/fills/coffee-fills.html",
+      "source": "SITEMAPS",
+      "targetPath": "/our-products/fills/coffee-fills",
+      "id": "169a22aa9173750070b87eb2a9ba591aec280a90"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/fills/vanilla-fills.html",
+      "source": "SITEMAPS",
+      "targetPath": "/our-products/fills/vanilla-fills",
+      "id": "273b812caf337b19a4e1562840c256b8fd5beec8"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/more/bourbon.html",
+      "source": "SITEMAPS",
+      "targetPath": "/our-products/more/bourbon",
+      "id": "3fe6dd4d9b08f2a4450076f956911d85afda3360"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/more/choco-chip.html",
+      "source": "SITEMAPS",
+      "targetPath": "/our-products/more/choco-chip",
+      "id": "75fed460e096d6c02564e6a2c16d36965435840e"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/more/choco-creme.html",
+      "source": "SITEMAPS",
+      "targetPath": "/our-products/more/choco-creme",
+      "id": "f2c758f6353416595cf1b5b296f5d5dce205c020"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/more/df-shake.html",
+      "source": "SITEMAPS",
+      "targetPath": "/our-products/more/df-shake",
+      "id": "f001447bacbdf15c5e790fbbed26e86c55bf0582"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/more/vanilla-creme.html",
+      "source": "SITEMAPS",
+      "targetPath": "/our-products/more/vanilla-creme",
+      "id": "54f69cb750fff95118eb5067efe0e4359391fc6b"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/more/yumfills-pie.html",
+      "source": "SITEMAPS",
+      "targetPath": "/our-products/more/yumfills-pie",
+      "id": "31fc27ef3f6b37c64d9826ed6b5e158675007dfe"
+    },
+    {
+      "url": "https://darkfantasycreations.com/privacy-policy.html",
+      "source": "SITEMAPS",
+      "targetPath": "/privacy-policy",
+      "id": "d9de52ba9aeb1f55d7d62a7285c05cbd80bb6bcb"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes",
+      "id": "c96b20c79bc7ed9e487629a46828550e94128fd2"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/choco-fills-cupcake-with-cookie-cream-frosting.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/choco-fills-cupcake-with-cookie-cream-frosting",
+      "id": "61bd8538eff29cc091b027828bd9777e03b1e6c7"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/choco-fills-peanut-butter-and-salted-caramekl-fluff.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/choco-fills-peanut-butter-and-salted-caramekl-fluff",
+      "id": "55c451b60a654694605e14b791dfe6e07796e6a2"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/coffee-fills-and-sweet-basil-shake.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/coffee-fills-and-sweet-basil-shake",
+      "id": "c79f2062eceedeb94edae297d8c450f3363872c9"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/coffee-fills-pound-cake-with-mocha-cream.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/coffee-fills-pound-cake-with-mocha-cream",
+      "id": "5c060fccf3b8ad9d9a193e878885537b787b845a"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/dark-fantasy-barfi.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/dark-fantasy-barfi",
+      "id": "7e04d969b189867d03a3da58deb0a32334701e7a"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/dark-fantasy-cookies-and-cream-roulade.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/dark-fantasy-cookies-and-cream-roulade",
+      "id": "cf01e289662317ea8021350eb8218527940a474c"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/dark-fantasy-white-forest-cake.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/dark-fantasy-white-forest-cake",
+      "id": "f916f990987e4a7d64576123a9c46f3de906d280"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/spiced-date-pudding-with-choco-fills.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/spiced-date-pudding-with-choco-fills",
+      "id": "8b919c97e8a40cde6f5f6913601a9d4a5f3c4ccf"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-brownies.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/sunfeast-dark-fantasy-brownies",
+      "id": "4a0e0d9ce7ae322d3532907436a913ea22f29b62"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-chakkara-pongal.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/sunfeast-dark-fantasy-chakkara-pongal",
+      "id": "d4d012607da9dea51523fca3bdfd67d5e3ed591d"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-chunky-milkshake.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/sunfeast-dark-fantasy-chunky-milkshake",
+      "id": "4c77d9f10fe9c68b4a7f620a06d21738bcd8cdd7"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-cupcakes.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/sunfeast-dark-fantasy-cupcakes",
+      "id": "7e7431e646be578ff6ec4a0c96387e3494ae37ae"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-gujiya.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/sunfeast-dark-fantasy-gujiya",
+      "id": "970d719b1a6e87a456a56c7a5e3b38753fc3713b"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-ice-cream-sandwich.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/sunfeast-dark-fantasy-ice-cream-sandwich",
+      "id": "2db820ff0187d241058ab5e177cf1a98595688ed"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-jar-dessert.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/sunfeast-dark-fantasy-jar-dessert",
+      "id": "bb961ed9fe3b85a12cb78146d893dfde52c3a408"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-kheer.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/sunfeast-dark-fantasy-kheer",
+      "id": "b7fb3ecf45d14304d167b7e7216e054ebff2a0d2"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-kulfi.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/sunfeast-dark-fantasy-kulfi",
+      "id": "f2675fa5456b241e53e710435b99d76318c3a3b4"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-mousse.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/sunfeast-dark-fantasy-mousse",
+      "id": "9645ffbd1d94d3d0a4a5621fca6de8c51c11cd17"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-mug-cake.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/sunfeast-dark-fantasy-mug-cake",
+      "id": "bab7523d173486061040ec076c1bc3b0ec37090e"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-parfait.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/sunfeast-dark-fantasy-parfait",
+      "id": "72ca26ad90a7d1e8d60143eb6680d1f477d6928d"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-salted-caramel-tart.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/sunfeast-dark-fantasy-salted-caramel-tart",
+      "id": "00911db4dcadebeeb589d50ee6f508cb7440b1e4"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/sunfeast-dark-fantasy-white-chocolate-fudge.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/sunfeast-dark-fantasy-white-chocolate-fudge",
+      "id": "4bbe733fef6f67a7c1487cedb7dc590a7daed19c"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/tiramisu-with-dark-fantasy-chocofills.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/tiramisu-with-dark-fantasy-chocofills",
+      "id": "aee10bfb2134ff17cda0d7ee7b511c7a350123df"
+    },
+    {
+      "url": "https://darkfantasycreations.com/recipes/traveller-s-cake-with-figs-and-amaranth.html",
+      "source": "SITEMAPS",
+      "targetPath": "/recipes/traveller-s-cake-with-figs-and-amaranth",
+      "id": "77e292ea1d32e1fde47dc527f83002be266fce33"
+    },
+    {
+      "url": "https://darkfantasycreations.com/sitemap.html",
+      "source": "SITEMAPS",
+      "targetPath": "/sitemap",
+      "id": "e73222558ab697fd11e3e8369b21a904807e4807"
+    },
+    {
+      "url": "https://darkfantasycreations.com/srk-poem.html",
+      "source": "SITEMAPS",
+      "targetPath": "/srk-poem",
+      "id": "600b5ad1b4b4254ac0954a0305bf52de315617bc"
+    },
+    {
+      "url": "https://darkfantasycreations.com/terms-and-conditions.html",
+      "source": "SITEMAPS",
+      "targetPath": "/terms-and-conditions",
+      "id": "d352195f484d5f4977afde8ad577f145126b277c"
+    },
+    {
+      "url": "https://darkfantasycreations.com/terms-of-use.html",
+      "source": "SITEMAPS",
+      "targetPath": "/terms-of-use",
+      "id": "2fede9fb31402a3fc273ceed35619f02f54ca793"
+    }
+  ],
+  "crawlOptions": {
+    "timeout": 10000,
+    "inclusionPatterns": [],
+    "exclusionPatterns": [],
+    "limit": 100,
+    "sameDomain": true,
+    "keepHash": false,
+    "strategy": "sitemaps",
+    "logger": {},
+    "strategiesAttempted": [
+      "SITEMAPS"
+    ]
+  },
+  "extractionErrors": [
+    {
+      "url": "https://darkfantasycreations.com/our-products/desserts.html",
+      "status": "301 Moved Permanently Redirect: https://darkfantasycreations.com/our-products.html"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/fills.html",
+      "status": "301 Moved Permanently Redirect: https://darkfantasycreations.com/our-products.html"
+    },
+    {
+      "url": "https://darkfantasycreations.com/our-products/more.html",
+      "status": "301 Moved Permanently Redirect: https://darkfantasycreations.com/our-products.html"
+    }
+  ],
+  "errorCountMessage": "{\"E_301\":3}",
+  "error": null
+}
