@@ -1,45 +1,43 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // --- HEADER ROW ---
+  // Header row
   const headerRow = ['Hero (hero8)'];
 
-  // --- BACKGROUND IMAGE ROW ---
-  let bgImgUrl = null;
-  const teaserDiv = element.querySelector('.cmp-teaser');
-  if (teaserDiv) {
-    bgImgUrl = teaserDiv.getAttribute('data-background-image-desktop');
-    if (!bgImgUrl) {
-      const bgImg = teaserDiv.querySelector(':scope > img');
-      if (bgImg) bgImgUrl = bgImg.src;
+  // --- Background Image Row ---
+  // Find the background image (first <img> direct child of .cmp-teaser)
+  let bgImg = '';
+  const teaser = element.querySelector('.cmp-teaser');
+  if (teaser) {
+    const teaserImgs = Array.from(teaser.children).filter(e => e.tagName === 'IMG');
+    if (teaserImgs.length > 0) {
+      bgImg = teaserImgs[0];
     }
   }
-  let bgImgEl = null;
-  if (bgImgUrl) {
-    bgImgEl = document.createElement('img');
-    bgImgEl.src = bgImgUrl;
+  const bgImgRow = [bgImg || ''];
+
+  // --- Content Row ---
+  // Heading, subheading, CTA, decorative image (dessert) in this cell
+  const contentParts = [];
+  if (teaser) {
+    const content = teaser.querySelector('.cmp-teaser__content');
+    if (content) {
+      const heading = content.querySelector('.cmp-teaser__title');
+      if (heading) contentParts.push(heading);
+      const desc = content.querySelector('.cmp-teaser__description');
+      if (desc) contentParts.push(desc);
+      const cta = content.querySelector('.cmp-teaser__action-container');
+      if (cta) contentParts.push(cta);
+    }
+    // Decorative image: .cmp-teaser__image img (dessert photo)
+    const decoImgEl = teaser.querySelector('.cmp-teaser__image img');
+    if (decoImgEl) {
+      contentParts.push(decoImgEl);
+    }
   }
-  const bgImgRow = [bgImgEl ? bgImgEl : ''];
+  const contentRow = [contentParts];
 
-  // --- CONTENT ROW ---
-  // Heading, description, CTA only
-  const contentContainer = teaserDiv.querySelector('.cmp-teaser__content');
-  let contentEls = [];
-  if (contentContainer) {
-    const heading = contentContainer.querySelector('.cmp-teaser__title');
-    if (heading) contentEls.push(heading);
-    const desc = contentContainer.querySelector('.cmp-teaser__description');
-    if (desc) contentEls.push(desc);
-    const cta = contentContainer.querySelector('.cmp-teaser__action-container a');
-    if (cta) contentEls.push(cta);
-  }
-  const contentRow = [contentEls];
-
-  // --- BUILD TABLE ---
-  const table = WebImporter.DOMUtils.createTable([
-    headerRow,
-    bgImgRow,
-    contentRow,
-  ], document);
-
+  // Build table
+  const cells = [headerRow, bgImgRow, contentRow];
+  const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }

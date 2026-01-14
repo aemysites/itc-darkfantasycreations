@@ -1,43 +1,42 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Cards (cards1) block header
+  // Cards block header
   const headerRow = ['Cards (cards1)'];
-  const rows = [headerRow];
 
-  // Find all card items using the specific class
-  const items = element.querySelectorAll('.cmp-product-listing__item');
+  // Find all card items
+  const cardEls = element.querySelectorAll('.cmp-product-listing__item');
+  const rows = [];
 
-  items.forEach((item) => {
+  cardEls.forEach(cardEl => {
     // Image (first cell)
-    const imgContainer = item.querySelector('.lazy-image-container');
-    let img = imgContainer ? imgContainer.querySelector('img') : null;
-    // Defensive: Only use the image element if present
-    let imgCell = img || '';
+    const imgEl = cardEl.querySelector('.lazy-image-container img');
+    // Reference the existing image element if present
+    let imgCell = null;
+    if (imgEl) {
+      imgCell = imgEl;
+    }
 
     // Text content (second cell)
-    // Title
-    const title = item.querySelector('.cmp-product-listing__name');
-    let titleEl = null;
-    if (title) {
-      titleEl = document.createElement('strong');
-      titleEl.textContent = title.textContent.trim();
+    const titleEl = cardEl.querySelector('.cmp-product-listing__name');
+    const descEl = cardEl.querySelector('.cmp-product-listing__description');
+    // Compose text cell: title (strong), then description
+    const textFrag = document.createElement('div');
+    if (titleEl) {
+      const strong = document.createElement('strong');
+      strong.textContent = titleEl.textContent;
+      textFrag.appendChild(strong);
     }
-    // Description
-    const desc = item.querySelector('.cmp-product-listing__description');
-    let descEl = null;
-    if (desc) {
-      descEl = document.createElement('p');
-      descEl.textContent = desc.textContent.trim();
+    if (descEl) {
+      textFrag.appendChild(document.createElement('br'));
+      textFrag.appendChild(document.createTextNode(descEl.textContent));
     }
-    // Compose text cell
-    const textCell = [];
-    if (titleEl) textCell.push(titleEl);
-    if (descEl) textCell.push(descEl);
-
-    rows.push([imgCell, textCell]);
+    rows.push([imgCell, textFrag]);
   });
 
-  // Create the table and replace the element
-  const table = WebImporter.DOMUtils.createTable(rows, document);
+  const table = WebImporter.DOMUtils.createTable([
+    headerRow,
+    ...rows
+  ], document);
+
   element.replaceWith(table);
 }

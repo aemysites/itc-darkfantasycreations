@@ -1,51 +1,46 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Helper: get direct child by class
-  function getChildByClass(parent, className) {
-    return Array.from(parent.children).find(child => child.classList && child.classList.contains(className));
-  }
-
-  // 1. Header row
+  // Header row for the Columns block
   const headerRow = ['Columns (columns10)'];
 
-  // 2. Find the main content container
-  const cmpProductSwiper = element.querySelector('.cmp-product-swiper');
+  // Find the main content container
+  const swiper = element.querySelector('[data-component="product-swiper"]');
+  if (!swiper) return;
 
-  // Defensive: If not found, do nothing
-  if (!cmpProductSwiper) return;
+  // Left column: heading, subheading, swipe icon, large cookie image
+  const title = swiper.querySelector('.cmp-product-swiper__title');
+  const subtitle = swiper.querySelector('.cmp-product-swiper__sub-title');
+  const swipeIconContainer = swiper.querySelector('.cmp-product-swiper__swipe-icon')?.closest('.lazy-image-container');
+  const leftCookieImg = swiper.querySelector('.cmp-product-swiper__cookie-img');
 
-  // 3. Left column: Title, subtitle, swipe visual, big cookie image
-  // Title
-  const title = cmpProductSwiper.querySelector('.cmp-product-swiper__title');
-  // Subtitle
-  const subtitle = cmpProductSwiper.querySelector('.cmp-product-swiper__sub-title');
-  // Swipe icon (the arrow visual)
-  const swipeIcon = cmpProductSwiper.querySelector('.cmp-product-swiper__swipe-icon');
-  // Large cookie image (the first .cmp-product-swiper__cookie-img)
-  const cookieImg = cmpProductSwiper.querySelector('.cmp-product-swiper__cookie-img');
+  // Compose left column content
+  const leftColElements = [];
+  if (title) leftColElements.push(title);
+  if (subtitle) leftColElements.push(subtitle);
+  if (swipeIconContainer) leftColElements.push(swipeIconContainer);
+  if (leftCookieImg) leftColElements.push(leftCookieImg);
 
-  // Compose left column
-  const leftCol = document.createElement('div');
-  if (title) leftCol.appendChild(title);
-  if (subtitle) leftCol.appendChild(subtitle);
-  if (swipeIcon && swipeIcon.parentElement) leftCol.appendChild(swipeIcon.parentElement); // use the container for swipe icon
-  if (cookieImg) leftCol.appendChild(cookieImg);
-
-  // 4. Right column: Product card image and caption
-  const section2 = cmpProductSwiper.querySelector('.cmp-product-swiper__section2');
-  let rightCol;
+  // Right column: product image and text (card)
+  const section2 = swiper.querySelector('.cmp-product-swiper__section2');
+  let rightColElements = [];
   if (section2) {
-    rightCol = section2;
-  } else {
-    rightCol = document.createElement('div');
+    rightColElements = Array.from(section2.children);
+    // If the product image exists, and its alt is empty, add the visible text from the <p> below the image
+    const prodImg = section2.querySelector('img');
+    const prodLabel = section2.querySelector('p');
+    if (prodImg && prodLabel && prodLabel.textContent.trim()) {
+      // Insert the label after the image
+      rightColElements.splice(1, 0, prodLabel.cloneNode(true));
+    }
   }
 
-  // 5. Build the table
-  const table = WebImporter.DOMUtils.createTable([
+  // Build the table rows
+  const rows = [
     headerRow,
-    [leftCol, rightCol],
-  ], document);
+    [leftColElements, rightColElements]
+  ];
 
-  // 6. Replace original element
+  // Create the table and replace the original element
+  const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

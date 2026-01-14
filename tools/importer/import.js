@@ -13,23 +13,23 @@
 /* eslint-disable no-console */
 import cards1Parser from './parsers/cards1.js';
 import cards3Parser from './parsers/cards3.js';
+import columns4Parser from './parsers/columns4.js';
 import columns5Parser from './parsers/columns5.js';
 import carousel7Parser from './parsers/carousel7.js';
-import columns4Parser from './parsers/columns4.js';
+import columns9Parser from './parsers/columns9.js';
 import hero8Parser from './parsers/hero8.js';
 import columns10Parser from './parsers/columns10.js';
-import columns9Parser from './parsers/columns9.js';
-import columns12Parser from './parsers/columns12.js';
 import cards11Parser from './parsers/cards11.js';
-import accordion14Parser from './parsers/accordion14.js';
+import columns12Parser from './parsers/columns12.js';
 import hero15Parser from './parsers/hero15.js';
 import hero16Parser from './parsers/hero16.js';
-import carousel17Parser from './parsers/carousel17.js';
-import columns19Parser from './parsers/columns19.js';
 import cards13Parser from './parsers/cards13.js';
+import accordion14Parser from './parsers/accordion14.js';
+import columns19Parser from './parsers/columns19.js';
+import carousel17Parser from './parsers/carousel17.js';
 import cards20Parser from './parsers/cards20.js';
-import hero21Parser from './parsers/hero21.js';
 import hero18Parser from './parsers/hero18.js';
+import hero21Parser from './parsers/hero21.js';
 import headerParser from './parsers/header.js';
 import metadataParser from './parsers/metadata.js';
 import cleanupTransformer from './transformers/cleanup.js';
@@ -48,23 +48,23 @@ const parsers = {
   metadata: metadataParser,
   cards1: cards1Parser,
   cards3: cards3Parser,
+  columns4: columns4Parser,
   columns5: columns5Parser,
   carousel7: carousel7Parser,
-  columns4: columns4Parser,
+  columns9: columns9Parser,
   hero8: hero8Parser,
   columns10: columns10Parser,
-  columns9: columns9Parser,
-  columns12: columns12Parser,
   cards11: cards11Parser,
-  accordion14: accordion14Parser,
+  columns12: columns12Parser,
   hero15: hero15Parser,
   hero16: hero16Parser,
-  carousel17: carousel17Parser,
-  columns19: columns19Parser,
   cards13: cards13Parser,
+  accordion14: accordion14Parser,
+  columns19: columns19Parser,
+  carousel17: carousel17Parser,
   cards20: cards20Parser,
-  hero21: hero21Parser,
   hero18: hero18Parser,
+  hero21: hero21Parser,
   ...customParsers,
 };
 

@@ -1,67 +1,53 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header row must match block name exactly
+  // 1. Table header row
   const headerRow = ['Hero (hero15)'];
 
-  // No background image, so row 2 is blank (solid color, but not an image)
+  // 2. Background image row (none in this case)
   const bgRow = [''];
 
-  // Compose the main content cell
-  // Find the main content wrapper
-  const heroContent = element.querySelector('.cmp-available-store__content');
-  const contentCell = document.createElement('div');
+  // 3. Content row
+  // Find the main content container
+  const contentWrap = element.querySelector('.cmp-available-store__wrap');
 
-  // Title (h2)
-  const titleWrap = heroContent && heroContent.querySelector('.cmp-available-store__title');
-  if (titleWrap) {
-    const h2 = titleWrap.querySelector('h2');
-    if (h2) {
-      contentCell.appendChild(h2.cloneNode(true));
-    }
-    // Subheading (p)
-    const sub = titleWrap.querySelector('p');
-    if (sub) {
-      contentCell.appendChild(sub.cloneNode(true));
-    }
+  // Title and subheading
+  let title, subheading;
+  const titleDiv = contentWrap?.querySelector('.cmp-available-store__title');
+  if (titleDiv) {
+    title = titleDiv.querySelector('h2');
+    subheading = titleDiv.querySelector('p');
   }
 
-  // Icon row (store links with images) - simplify: only the links with images
-  const iconsList = heroContent && heroContent.querySelector('.cmp-available-store__iconsList');
+  // Store icons (links with images)
+  const iconsList = contentWrap?.querySelector('.cmp-available-store__iconsList');
+  let icons = [];
   if (iconsList) {
-    const iconsRow = document.createElement('div');
-    iconsRow.style.display = 'flex';
-    iconsRow.style.gap = '1em';
-    [...iconsList.querySelectorAll('a')].forEach((a) => {
-      const iconLink = document.createElement('a');
-      iconLink.href = a.href;
-      iconLink.target = a.target;
-      const img = a.querySelector('img');
-      if (img) {
-        iconLink.appendChild(img.cloneNode(true));
-      }
-      iconsRow.appendChild(iconLink);
-    });
-    contentCell.appendChild(iconsRow);
+    icons = Array.from(iconsList.querySelectorAll('a'));
   }
 
-  // Supporting text (p under icons)
-  const supporting = heroContent && heroContent.querySelector('.cmp-available-store__text');
-  if (supporting) {
-    const p = supporting.querySelector('p');
-    if (p) {
-      contentCell.appendChild(p.cloneNode(true));
-    }
-  }
+  // Supporting text under icons
+  const supportingText = contentWrap?.querySelector('.cmp-available-store__text p');
 
-  // Compose the table rows
-  const contentRow = [contentCell];
+  // Compose the content cell
+  // We'll use a div to keep the structure and let rendering handle the layout
+  const contentDiv = document.createElement('div');
+  if (title) contentDiv.appendChild(title);
+  if (subheading) contentDiv.appendChild(subheading);
+  if (icons.length) {
+    const iconsDiv = document.createElement('div');
+    iconsDiv.style.display = 'flex';
+    iconsDiv.style.gap = '1em';
+    icons.forEach(a => iconsDiv.appendChild(a));
+    contentDiv.appendChild(iconsDiv);
+  }
+  if (supportingText) contentDiv.appendChild(supportingText);
+
+  // Build the table
   const cells = [
     headerRow,
     bgRow,
-    contentRow,
+    [contentDiv],
   ];
-
-  // Create the table and replace the element
   const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }
