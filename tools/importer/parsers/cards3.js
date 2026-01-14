@@ -1,64 +1,78 @@
 /* global WebImporter */
-
 export default function parse(element, { document }) {
-  // Cards (cards3) block header
+  // Cards (cards3) block: 2 columns, multiple rows. First row is block name.
   const headerRow = ['Cards (cards3)'];
   const rows = [headerRow];
 
-  // Find the carousel track containing the cards
-  const track = element.querySelector('.cmp-carousel__container .slick-track');
-  if (!track) return;
+  // Find all card items within the carousel
+  const cardItems = element.querySelectorAll('.cmp-carousel__item');
 
-  // Each card is a .cmp-carousel__item
-  const cards = track.querySelectorAll('.cmp-carousel__item');
-
-  cards.forEach(card => {
-    // Image: inside .cmp-card__image img
-    const img = card.querySelector('.cmp-card__image img');
-    // Tag: .cmp-card__tag-wrapper p (optional)
-    const tag = card.querySelector('.cmp-card__tag-wrapper p');
-    // Title: .cmp-card__title h5 (inside an <a>)
-    const titleLink = card.querySelector('.cmp-card__title a');
-    const title = titleLink ? titleLink.querySelector('h5') : null;
-    // Description: .cmp-card__time-in-minutes
-    const desc = card.querySelector('.cmp-card__time-in-minutes');
-
-    // Build the text cell
-    const textCellContent = [];
-    if (tag) {
-      // Wrap tag in a <p> for structure
-      const tagP = document.createElement('p');
-      tagP.textContent = tag.textContent;
-      textCellContent.push(tagP);
+  cardItems.forEach(cardItem => {
+    // Image cell (first column)
+    let imageEl = cardItem.querySelector('.cmp-card__image img');
+    if (!imageEl) {
+      imageEl = document.createElement('span');
+      imageEl.textContent = 'No image';
     }
-    if (titleLink && title) {
-      // Use the link, but only keep the h5 inside
-      const heading = document.createElement('h5');
-      heading.textContent = title.textContent;
-      // If the link has an href, wrap heading in a link
-      if (titleLink.href) {
-        const a = document.createElement('a');
-        a.href = titleLink.href;
-        a.appendChild(heading);
-        textCellContent.push(a);
-      } else {
-        textCellContent.push(heading);
+
+    // Text cell (second column)
+    const info = cardItem.querySelector('.cmp-card__info');
+    const textCellContent = [];
+
+    // Three-dot options icon (vertical ellipsis)
+    const dots = cardItem.querySelector('.cmp-card__three-dots');
+    if (dots) {
+      // Use a Unicode vertical ellipsis as a placeholder
+      const dotsIcon = document.createElement('span');
+      dotsIcon.textContent = '\u22EE';
+      dotsIcon.style.float = 'right';
+      dotsIcon.style.fontSize = '18px';
+      dotsIcon.style.marginLeft = '8px';
+      textCellContent.push(dotsIcon);
+    }
+
+    // Tag (difficulty)
+    const tagWrapper = info && info.querySelector('.cmp-card__tag-wrapper p');
+    if (tagWrapper) {
+      const tagPill = document.createElement('div');
+      tagPill.textContent = tagWrapper.textContent;
+      tagPill.style.display = 'inline-block';
+      tagPill.style.padding = '2px 10px';
+      tagPill.style.borderRadius = '12px';
+      tagPill.style.background = '#3a2a18';
+      tagPill.style.color = '#fff';
+      tagPill.style.fontSize = '12px';
+      tagPill.style.marginBottom = '8px';
+      textCellContent.push(tagPill);
+    }
+
+    // Title (as heading, preserve link)
+    const titleLink = info && info.querySelector('.cmp-card__title a');
+    if (titleLink) {
+      const h5 = titleLink.querySelector('h5');
+      if (h5) {
+        const link = document.createElement('a');
+        link.href = titleLink.href;
+        link.textContent = h5.textContent;
+        link.style.fontWeight = 'bold';
+        link.style.display = 'block';
+        textCellContent.push(document.createElement('br'));
+        textCellContent.push(link);
       }
     }
-    if (desc) {
-      const descP = document.createElement('p');
-      descP.textContent = desc.textContent;
-      textCellContent.push(descP);
+
+    // Description (time)
+    const timeDiv = info && info.querySelector('.cmp-card__time-in-minutes');
+    if (timeDiv) {
+      textCellContent.push(document.createElement('br'));
+      const timeText = document.createElement('span');
+      timeText.textContent = timeDiv.textContent;
+      textCellContent.push(timeText);
     }
 
-    // Add the row: [image, text content]
-    rows.push([
-      img ? img : '',
-      textCellContent
-    ]);
+    rows.push([imageEl, textCellContent]);
   });
 
-  // Create the table and replace the original element
   const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

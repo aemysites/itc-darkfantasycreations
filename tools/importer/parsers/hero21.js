@@ -1,53 +1,69 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Table header row
+  // Table header as required
   const headerRow = ['Hero (hero21)'];
 
-  // 2. Background image row (none in this case)
-  const bgRow = [''];
+  // Find the hero content root
+  const wrap = element.querySelector('.cmp-available-store__wrap');
+  if (!wrap) return;
 
-  // 3. Content row
-  // Locate the main hero content wrapper
-  const heroContent = element.querySelector('.cmp-available-store__wrap');
-  if (!heroContent) return;
+  // 2nd row: Background image/color (optional)
+  // If there's a background color, represent it as a styled div (no text)
+  let bgCell = '';
+  const bgColor = wrap.getAttribute('data-hlx-imp-bgcolor');
+  if (bgColor) {
+    const bgDiv = document.createElement('div');
+    bgDiv.style.backgroundColor = bgColor;
+    bgCell = bgDiv;
+  }
+  const bgRow = [bgCell];
 
-  // Compose a single cell containing all relevant content
-  const contentCell = document.createElement('div');
+  // 3rd row: Content, grouped for clarity
+  const content = document.createElement('div');
 
-  // Title and subheading
-  const titleWrap = heroContent.querySelector('.cmp-available-store__title');
+  // Title and subheading group
+  const titleGroup = document.createElement('div');
+  const titleWrap = wrap.querySelector('.cmp-available-store__title');
   if (titleWrap) {
-    // Include all children of the titleWrap (h2 and p)
     Array.from(titleWrap.childNodes).forEach(node => {
-      contentCell.appendChild(node.cloneNode(true));
+      titleGroup.appendChild(node.cloneNode(true));
     });
   }
+  content.appendChild(titleGroup);
 
-  // Store icons (CTAs)
-  const iconsList = heroContent.querySelector('.cmp-available-store__iconsList');
+  // Store icons group
+  const iconsGroup = document.createElement('div');
+  const iconsList = wrap.querySelector('.cmp-available-store__iconsList');
   if (iconsList) {
-    // Place icons in a div for horizontal grouping
-    const iconsDiv = document.createElement('div');
-    iconsDiv.style.display = 'flex';
-    iconsDiv.style.gap = '1em';
-    Array.from(iconsList.children).forEach(child => {
-      iconsDiv.appendChild(child.cloneNode(true));
-    });
-    contentCell.appendChild(iconsDiv);
-  }
-
-  // Supporting text
-  const supportingTextWrap = heroContent.querySelector('.cmp-available-store__text');
-  if (supportingTextWrap) {
-    Array.from(supportingTextWrap.childNodes).forEach(node => {
-      contentCell.appendChild(node.cloneNode(true));
+    Array.from(iconsList.children).forEach(link => {
+      // Fix alt attribute for Flipkart icon if needed
+      const img = link.querySelector('img');
+      if (img && link.href && link.href.includes('flipkart.com')) {
+        img.alt = 'Flipkart';
+      }
+      iconsGroup.appendChild(link.cloneNode(true));
     });
   }
+  content.appendChild(iconsGroup);
 
-  const contentRow = [contentCell];
+  // Info text group
+  const infoGroup = document.createElement('div');
+  const infoText = wrap.querySelector('.cmp-available-store__text');
+  if (infoText) {
+    Array.from(infoText.childNodes).forEach(node => {
+      infoGroup.appendChild(node.cloneNode(true));
+    });
+  }
+  content.appendChild(infoGroup);
 
-  // Build the table
-  const cells = [headerRow, bgRow, contentRow];
+  const contentRow = [content];
+
+  // Compose the table
+  const cells = [
+    headerRow,
+    bgRow,
+    contentRow
+  ];
   const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }

@@ -1,39 +1,50 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Extract left column: title, serves (from left), tags, ingredients (with time grouped as in source)
+  // Header row for the Columns block
+  const headerRow = ['Columns (columns5)'];
+
+  // --- LEFT COLUMN CONTENT ---
+  // Get left container (main content)
   const left = element.querySelector('.cmp-recipe-detail__left-container');
-  const title = left.querySelector('.cmp-recipe-detail__title');
-  const servesLeft = left.querySelector('.cmp-recipe-detail__recipe-serves');
-  const tags = left.querySelector('.cmp-recipe-detail__tags');
-  const ingredients = left.querySelector('.cmp-recipe-detail__ingredients');
+  // Defensive: if left is missing, fallback to element
+  const leftContent = left || element;
 
-  // Compose left column fragment
-  const leftCol = document.createElement('div');
-  if (title) leftCol.appendChild(title.cloneNode(true));
-  if (servesLeft) leftCol.appendChild(servesLeft.cloneNode(true));
-  if (tags) leftCol.appendChild(tags.cloneNode(true));
-  if (ingredients) leftCol.appendChild(ingredients.cloneNode(true));
+  // Title
+  const title = leftContent.querySelector('.cmp-recipe-detail__title');
+  // Tags (as a container)
+  const tags = leftContent.querySelector('.cmp-recipe-detail__tags');
+  // Ingredients/time (as a container)
+  const ingredientsTime = leftContent.querySelector('.cmp-recipe-detail__ingredients');
+  // Compose left column fragment (do NOT include serves info)
+  const leftColumn = document.createElement('div');
+  if (title) leftColumn.appendChild(title);
+  if (tags) leftColumn.appendChild(tags);
+  if (ingredientsTime) leftColumn.appendChild(ingredientsTime);
 
-  // Extract right column: share, serves (from right only)
+  // --- RIGHT COLUMN CONTENT ---
+  // Get right container (meta info)
   const right = element.querySelector('.cmp-recipe-detail__right-container');
-  const share = right.querySelector('.cmp-recipe-detail__social-share');
-  const servesRight = right.querySelector('.cmp-recipe-detail__recipe-serves');
+  // Defensive: if right is missing, fallback to element
+  const rightContent = right || element;
+
+  // Share label (as a container)
+  const share = rightContent.querySelector('.cmp-recipe-detail__social-share');
+  // Serves info (as a container)
+  const servesRight = rightContent.querySelector('.cmp-recipe-detail__recipe-serves');
 
   // Compose right column fragment
-  const rightCol = document.createElement('div');
-  if (share) rightCol.appendChild(share.cloneNode(true));
-  if (servesRight) rightCol.appendChild(servesRight.cloneNode(true));
+  const rightColumn = document.createElement('div');
+  if (share) rightColumn.appendChild(share);
+  if (servesRight) rightColumn.appendChild(servesRight.cloneNode(true));
 
-  // Compose table rows
-  const headerRow = ['Columns (columns5)'];
-  const contentRow = [leftCol, rightCol];
-
-  // Create table
-  const table = WebImporter.DOMUtils.createTable([
+  // --- TABLE STRUCTURE ---
+  // 2 columns: left (main content), right (share/serves)
+  const rows = [
     headerRow,
-    contentRow,
-  ], document);
+    [leftColumn, rightColumn],
+  ];
 
-  // Replace original element
+  // Replace the original element with the new table
+  const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

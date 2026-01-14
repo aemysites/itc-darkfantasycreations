@@ -1,38 +1,39 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Cards (cards20) block header
+  // Cards (cards20) block: 2 columns, multiple rows, first row is block name
   const headerRow = ['Cards (cards20)'];
+  const rows = [headerRow];
 
   // Find all card items
-  const cardEls = element.querySelectorAll('.cmp-product-listing__item');
-
-  const rows = Array.from(cardEls).map(cardEl => {
+  const cardItems = element.querySelectorAll('.cmp-product-listing__item');
+  cardItems.forEach(card => {
     // Image (first cell)
-    const imgContainer = cardEl.querySelector('.lazy-image-container');
-    let img = imgContainer ? imgContainer.querySelector('img') : null;
+    const imgContainer = card.querySelector('.lazy-image-container');
+    let imgEl = imgContainer ? imgContainer.querySelector('img') : null;
 
-    // Text content (second cell)
-    const title = cardEl.querySelector('.cmp-product-listing__name');
-    const desc = cardEl.querySelector('.cmp-product-listing__description');
-    const cellContent = [];
-    if (title) {
+    // Text (second cell)
+    const titleEl = card.querySelector('.cmp-product-listing__name');
+    const descEl = card.querySelector('.cmp-product-listing__description');
+    // Compose text cell: title as heading, description below
+    const textCell = document.createElement('div');
+    if (titleEl) {
       const h = document.createElement('h3');
-      h.textContent = title.textContent; // do not trim or alter, preserve exactly
-      cellContent.push(h);
+      h.textContent = titleEl.textContent;
+      textCell.appendChild(h);
     }
-    if (desc) {
+    if (descEl) {
       const p = document.createElement('p');
-      p.innerHTML = desc.innerHTML; // preserves &nbsp; and all HTML
-      cellContent.push(p);
+      // Use descEl.textContent to preserve visible text, including trailing spaces
+      p.textContent = descEl.textContent;
+      textCell.appendChild(p);
     }
-    return [img, cellContent];
+    rows.push([
+      imgEl,
+      textCell
+    ]);
   });
 
-  // Create table with header row as a single cell (not <th>), per guidelines
-  const table = WebImporter.DOMUtils.createTable([
-    headerRow,
-    ...rows,
-  ], document);
-
+  // Create and replace block
+  const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

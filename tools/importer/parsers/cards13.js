@@ -1,50 +1,41 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Cards (cards13) block header row
+  // Cards (cards13) block: 2 columns, each row is a card with image and text
   const headerRow = ['Cards (cards13)'];
 
-  // Find the card container
-  const card = element.querySelector('.cmp-card');
-  if (!card) return;
+  // Find image
+  const img = element.querySelector('img');
 
-  // --- IMAGE ---
-  const img = card.querySelector('img') || element.querySelector('img') || '';
+  // Find title and description (always include, even if empty)
+  const title = element.querySelector('.cmp-card__username');
+  const description = element.querySelector('.cmp-card__description');
 
-  // --- TEXT CONTENT ---
+  // Find rating stars (preserve as empty divs, faithful to source)
+  const ratingStars = element.querySelectorAll('.rating-star');
+  const ratingContainer = document.createElement('div');
+  ratingStars.forEach(() => {
+    const starDiv = document.createElement('div');
+    starDiv.className = 'rating-star';
+    ratingContainer.appendChild(starDiv);
+  });
+
+  // Compose text cell: always include title, rating, description (even if empty)
   const textCellContent = [];
+  const heading = document.createElement('h4');
+  heading.textContent = title ? title.textContent.trim() : '';
+  textCellContent.push(heading);
+  textCellContent.push(ratingContainer);
+  const desc = document.createElement('p');
+  desc.textContent = description ? description.textContent.trim() : '';
+  textCellContent.push(desc);
 
-  // Title (username)
-  const title = card.querySelector('.cmp-card__username');
-  const h = document.createElement('h4');
-  h.textContent = title ? title.textContent : '';
-  textCellContent.push(h);
+  // Card row: [image, text]
+  const cardRow = [img, textCellContent];
 
-  // Rating (stars)
-  const ratingContainer = card.querySelector('.cmp-card__rating');
-  const ratingEl = document.createElement('div');
-  if (ratingContainer) {
-    const stars = ratingContainer.querySelectorAll('.rating-star');
-    ratingEl.textContent = Array.from(stars).map(() => '★').join('');
-  } else {
-    ratingEl.textContent = '';
-  }
-  textCellContent.push(ratingEl);
+  // Build table
+  const cells = [headerRow, cardRow];
+  const table = WebImporter.DOMUtils.createTable(cells, document);
 
-  // Description
-  const desc = card.querySelector('.cmp-card__description');
-  const p = document.createElement('p');
-  p.textContent = desc ? desc.textContent : '';
-  textCellContent.push(p);
-
-  // Build the table rows
-  const rows = [
-    headerRow,
-    [img, textCellContent]
-  ];
-
-  // Create the table block
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-
-  // Replace the original element
+  // Replace element
   element.replaceWith(table);
 }

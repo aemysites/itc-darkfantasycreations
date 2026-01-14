@@ -3,50 +3,31 @@ export default function parse(element, { document }) {
   // Header row for Columns block
   const headerRow = ['Columns (columns19)'];
 
-  // Find the main teaser container (the block root)
-  const teaser = element.querySelector('.cmp-teaser');
-  if (!teaser) return;
+  // --- COLUMN 1: Text content (heading, description, button) ---
+  // Find the main teaser content container
+  const teaserContent = element.querySelector('.cmp-teaser__content');
+  // Defensive: If not found, fallback to the first div
+  const leftCol = teaserContent || element.querySelector('div');
 
-  // --- LEFT COLUMN: Text content (heading, description, button) ---
-  const content = teaser.querySelector('.cmp-teaser__content');
-  const leftColumn = document.createElement('div');
-  if (content) {
-    // Heading
-    const heading = content.querySelector('.cmp-teaser__title');
-    if (heading) leftColumn.appendChild(heading);
-    // Description
-    const description = content.querySelector('.cmp-teaser__description');
-    if (description) leftColumn.appendChild(description);
-    // Button
-    const button = content.querySelector('.cmp-teaser__action-container a');
-    if (button) leftColumn.appendChild(button);
+  // --- COLUMN 2: Main image (the dessert/cake) ---
+  // Find the image container in the right column
+  const imageCol = element.querySelector('.cmp-teaser__image img');
+  // Defensive: If not found, fallback to any img not in leftCol
+  let rightCol = null;
+  if (imageCol) {
+    rightCol = imageCol;
+  } else {
+    // Try to find any img not inside the left column
+    const imgs = element.querySelectorAll('img');
+    rightCol = Array.from(imgs).find(img => !leftCol || !leftCol.contains(img)) || imgs[0];
   }
 
-  // --- RIGHT COLUMN: Main image (the recipe photo) ---
-  let rightImage = null;
-  const imageContainer = teaser.querySelector('.cmp-teaser__image');
-  if (imageContainer) {
-    rightImage = imageContainer.querySelector('img');
-  }
-  // Fallback: if not found, try any img after the first (background) image
-  if (!rightImage) {
-    const imgs = teaser.querySelectorAll('img');
-    if (imgs.length > 1) rightImage = imgs[1];
-  }
-
-  // If rightImage exists, reference the actual image element (not clone)
-  let rightCell = document.createTextNode('');
-  if (rightImage) {
-    rightCell = rightImage;
-  }
-
-  // Compose the table rows
-  const rows = [
+  // --- Build the table ---
+  const cells = [
     headerRow,
-    [leftColumn, rightCell],
+    [leftCol, rightCol]
   ];
 
-  // Create the table and replace the element
-  const table = WebImporter.DOMUtils.createTable(rows, document);
+  const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }
