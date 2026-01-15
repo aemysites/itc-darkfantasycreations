@@ -188,17 +188,14 @@
   z-index: unset;
 }
 
-/* Left side (first child) */
 .hero > div:first-child {
-  /* If you want left-side content to take up less width, you can specify */
   flex: 1 1 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; /* left align */
+  align-items: flex-start;
 }
 
-/* Right side (second child) */
 .hero > div:last-child {
   flex: 1 1 60%;
   display: flex;
@@ -207,7 +204,6 @@
   align-items: flex-start;
 }
 
-/* The inner div in the right side (contains text) */
 .hero > div:last-child > div {
   display: flex;
   flex-direction: column;
@@ -215,7 +211,6 @@
   align-items: flex-start;
 }
 
-/* Typography */
 .hero h2 {
   font-size: 2rem;
   font-weight: bold;
@@ -231,16 +226,127 @@
 }
 
 .hero p:last-child {
-  margin-top: 16px; /* space above "nearby stores" text if desired */
+  margin-top: 16px;
   font-size: 0.85rem;
   opacity: 0.7;
 }
 
-/* Responsive adjustments */
 @media (width <= 768px) {
   .hero {
     flex-direction: column;
     gap: 24px;
     padding: 24px 12px;
+  }
+}
+
+
+.hero.hero16 {
+  background: #301700;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: 520px;
+  width: 100%;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+  gap: 3rem;
+}
+
+.hero.hero16 .picture {
+  /* Remove any z-index and absolute positioning */
+  position: relative;
+  flex: 1 1 0;
+  order: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 400px;
+}
+
+.hero.hero16 .picture img {
+  width: 100%;
+  max-width: 400px;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgb(40 18 0 / 17%);
+  background: transparent;
+  display: block;
+}
+
+.hero.hero16 .block {
+  flex: 1.2 1 0;
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 540px;
+  min-width: 260px;
+  padding-left: 1rem;
+}
+
+.hero.hero16 h2 {
+  color: #fff4d8;
+  font-size: 2.7rem;
+  font-weight: 700;
+  line-height: 1.13;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.hero.hero16 p {
+  color: #fff4d8;
+  font-size: 1.19rem;
+  font-weight: 400;
+  line-height: 1.7;
+  margin: 0 0 1.1rem;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.hero.hero16 p:last-child {
+  color: #664220;
+  font-size: 1rem;
+  margin-top: 2rem;
+  opacity: 0.82;
+  transition: color 0.2s, opacity 0.2s;
+  cursor: pointer;
+  text-align: left;
+}
+
+.hero.hero16 p:last-child:hover {
+  color: #fff4d8;
+  opacity: 1;
+  text-decoration: underline;
+}
+
+@media (width <= 900px) {
+  .hero.hero16 {
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 1rem;
+    gap: 2rem;
+    min-height: 0;
+  }
+
+  .hero.hero16 .picture {
+    max-width: 280px;
+    margin-bottom: 1.8rem;
+  }
+
+  .hero.hero16 .block {
+    max-width: 100%;
+    padding-left: 0;
+  }
+
+  .hero.hero16 h2 {
+    font-size: 2rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .hero.hero16 p {
+    font-size: 1rem;
   }
 }
