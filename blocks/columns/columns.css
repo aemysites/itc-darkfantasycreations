@@ -388,3 +388,135 @@
     min-height: 160px;
   }
 }
+
+
+.columns.columns12 {
+  background: linear-gradient(107deg, #59351A 0%, #885529 100%);
+  padding: 4.5rem 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.columns.columns12 div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 5vw;
+  width: 90%;
+  margin: 0 auto;
+  min-height: 400px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+@media (width <= 1000px) {
+  .columns.columns12 div {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 2.5rem;
+    width: 98%;
+    min-height: unset;
+  }
+
+  .columns.columns12 .columns-img-col {
+    justify-content: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .columns.columns12 .columns-img-col img,
+  .columns.columns12 .columns-img-col picture {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    min-width: 0;
+    margin-left: 0;
+  }
+}
+
+.columns.columns12 h2 {
+  color: #FFF3D6;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.14;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.columns.columns12 p {
+  color: #E7E2DA;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  margin-block: 0 1.2rem;
+  line-height: 1.5;
+  max-width: 38em;
+}
+
+.columns.columns12 .button-container {
+  margin-top: 2.2rem;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.columns.columns12 .button {
+  background: #E94B35;
+  color: #fff;
+  border-radius: 2em;
+  padding: 0.85em 2.3em;
+  font-size: 1.07em;
+  font-weight: 600;
+  box-shadow: none;
+  border: none;
+  text-decoration: none;
+  transition: background 0.18s;
+}
+
+.columns.columns12 .button:hover, 
+.columns.columns12 .button:focus {
+  background: #c53826;
+}
+
+.columns.columns12 .columns-img-col {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 0;
+}
+
+.columns.columns12 .columns-img-col img, 
+.columns.columns12 .columns-img-col picture {
+  display: block;
+  width: 340px;
+  height: 340px;
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.columns.columns12::before,
+.columns.columns12::after {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+  width: 100px;
+  height: 100px;
+  display: block;
+}
+
+.columns.columns12::before {
+  top: 12%;
+  left: 3%;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6d/Almond.svg');
+}
+
+.columns.columns12::after {
+  bottom: 15%;
+  right: 5%;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/07/Cashew_nut_icon.svg');
+}
