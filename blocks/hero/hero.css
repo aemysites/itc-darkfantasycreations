@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,8 +6,13 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  padding: 48px 32px;
+  min-height: 220px;
+  background: #FFE082;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
 }
 
 .hero h1,
@@ -46,9 +52,6 @@
   }
 }
 
-/* HERO BLOCK LAYOUT & VISUAL STYLE FOR .hero.hero8 */
-
-/* Base hero block styling */
 .hero.hero8 {
   box-sizing: border-box;
   width: 100vw;
@@ -65,9 +68,6 @@
   position: relative;
 }
 
-/* Remove space around hero if image is a background and hero should be edge-to-edge */
-
-/* Side-by-side column layout for image and content on desktop */
 .hero.hero8 div {
   flex: 1 1 0;
   display: flex;
@@ -76,7 +76,6 @@
   min-width: 0;
 }
 
-/* Image positioning and display (LEFT side) */
 .hero.hero8 picture {
   flex: 1;
   order: 1;
@@ -85,9 +84,6 @@
   justify-content: center;
 }
 
-/* If you want image RIGHT side, use order: 2 on .hero.hero8 picture (not included here as image is left in your original) */
-
-/* Image display (object-fit, spacing, radius) */
 .hero.hero8 picture img {
   width: 420px;
   max-width: 100%;
@@ -98,7 +94,6 @@
   box-shadow: 0 8px 32px 0 rgb(0 0 0 / 10%);
 }
 
-/* Main text column (headings, paragraph, button) */
 .hero.hero8 .hero-content,
 .hero.hero8 .hero-content-wrapper,
 .hero.hero8 .text-column,
@@ -114,7 +109,6 @@
   text-align: left;
 }
 
-/* Headings */
 .hero.hero8 h1,
 .hero.hero8 h2 {
   color: #fff6e0;
@@ -125,7 +119,6 @@
   line-height: 1.1;
 }
 
-/* Body text */
 .hero.hero8 p {
   color: #e5e0dc;
   font-size: 1.125rem;
@@ -134,7 +127,6 @@
   max-width: 600px;
 }
 
-/* Button override for hero CTA */
 .hero.hero8 a.button,
 .hero.hero8 button {
   background: #e94125;
@@ -192,7 +184,63 @@
   }
 }
 
-/* Remove z-index from .hero .picture (if previously set elsewhere) */
 .hero .picture {
   z-index: unset;
+}
+
+/* Left side (first child) */
+.hero > div:first-child {
+  /* If you want left-side content to take up less width, you can specify */
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* left align */
+}
+
+/* Right side (second child) */
+.hero > div:last-child {
+  flex: 1 1 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* The inner div in the right side (contains text) */
+.hero > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Typography */
+.hero h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.hero p {
+  font-size: 0.98rem;
+  color: #000;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.hero p:last-child {
+  margin-top: 16px; /* space above "nearby stores" text if desired */
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (width <= 768px) {
+  .hero {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 12px;
+  }
 }
