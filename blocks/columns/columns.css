@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -32,8 +33,6 @@
   }
 }
 
-
-/* Main Layout */
 .columns-wrapper .columns > div {
   display: flex;
   flex-direction: row;
@@ -45,7 +44,6 @@
   color: #fff;
 }
 
-/* Chocolate Drip Overlay */
 .columns-wrapper .columns > div::before {
   content: "";
   display: block;
@@ -53,14 +51,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 40px; /* adjust */
+  height: 40px;
   background: url('/path/to/chocolate-drip.png') repeat-x top center;
   background-size: cover;
   z-index: 2;
   pointer-events: none;
 }
 
-/* Columns */
 .columns-wrapper .columns > div > div:first-child {
   min-width: 200px;
   margin-right: 48px;
@@ -90,7 +87,6 @@
   background: rgb(255 255 255 / 25%);
 }
 
-/* Links */
 .columns-wrapper .columns > div ul,
 .columns-wrapper .columns > div li,
 .columns-wrapper .columns > div a {
@@ -110,7 +106,6 @@
   margin: 0;
 }
 
-/* Responsive */
 @media (width <= 600px) {
   .columns-wrapper .columns > div {
     flex-direction: column;
@@ -127,3 +122,124 @@
     display: none;
   }
 }
+
+
+.columns.columns5 {
+  background: #2d1808;
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  color: #f8e9bc;
+  max-width: 700px;
+  margin: 2.5rem auto;
+  box-sizing: border-box;
+}
+
+.columns.columns5 .columns-wrapper {
+  padding: 0;
+  margin: 0;
+  max-width: unset;
+}
+
+.columns.columns5 .columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+@media (width <= 700px) {
+  .columns.columns5 .columns {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+}
+
+.columns.columns5 div,
+.columns.columns5 p {
+  box-sizing: border-box;
+}
+
+/* === LEFT (Main) Column === */
+.columns.columns5 .columns div:first-of-type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Title */
+.columns.columns5 .columns div:first-of-type p:nth-child(1) {
+  font-weight: 700;
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+/* Tags / Pills */
+.columns.columns5 .columns div:first-of-type p:nth-child(2),
+.columns.columns5 .columns div:first-of-type p:nth-child(3),
+.columns.columns5 .columns div:first-of-type p:nth-child(4) {
+  display: inline-block;
+  border: 1px solid #f8e9bc;
+  border-radius: 2rem;
+  padding: 0.25rem 1rem;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* Ingredients / Minutes block container */
+
+.columns.columns5 .columns div:first-of-type p:nth-child(5),
+.columns.columns5 .columns div:first-of-type p:nth-child(7) {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+.columns.columns5 .columns div:first-of-type p:nth-child(6),
+.columns.columns5 .columns div:first-of-type p:nth-child(8) {
+  font-size: 1rem;
+  display: inline-block;
+  margin-right: 2em;
+  margin-bottom: 0.5em;
+}
+
+/* Group ingredients and minutes pairs into visual blocks */
+
+.columns.columns5 .columns div:first-of-type p:nth-child(5),
+.columns.columns5 .columns div:first-of-type p:nth-child(6) {
+  display: block;
+  float: left;
+  width: 50px;
+  text-align: center;
+}
+
+.columns.columns5 .columns div:first-of-type p:nth-child(7),
+.columns.columns5 .columns div:first-of-type p:nth-child(8) {
+  display: block;
+  float: left;
+  width: 70px;
+  text-align: center;
+}
+
+@media (width >= 600px) {
+  .columns.columns5 .columns div:first-of-type {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .columns.columns5 .columns div:first-of-type .info-blocks {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+/* If manual wrapping is not possible due to DOM, use nth-child selectors
+   or ::after, ::before pseudo-elements to visually group as much as possible.
+ */
