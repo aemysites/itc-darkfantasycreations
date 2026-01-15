@@ -429,7 +429,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   white-space: normal;
-  word-break: break-all; /* Updated from deprecated 'break-word' */
+  word-break: break-all;
   max-width: 100%;
 }
 
@@ -485,7 +485,6 @@
 
 
 .cards.cards13 {
-  /* Full viewport background gradient with brushstroke overlay */
   position: relative;
   min-height: 100vh;
   width: 100vw;
@@ -500,7 +499,6 @@
 }
 
 .cards.cards13::before {
-  /* Brushstroke overlay */
   position: absolute;
   top: 0;
   left: 0;
@@ -513,7 +511,6 @@
 }
 
 .cards.cards13 ul {
-  /* Center card(s) within the block */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -528,7 +525,6 @@
 }
 
 .cards.cards13 li {
-  /* Card styling: pastel, floating, side-by-side columns */
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -546,7 +542,6 @@
   padding: 0;
 }
 
-/* Side-by-side: image left, content right */
 .cards.cards13 .cards-card-image {
   flex: 0 1 60%;
   display: flex;
@@ -571,7 +566,6 @@
   box-sizing: border-box;
 }
 
-/* Card headline/title styling */
 .cards.cards13 .cards-card-body h1,
 .cards.cards13 .cards-card-body h2,
 .cards.cards13 .cards-card-body h3 {
@@ -584,7 +578,6 @@
   line-height: 1.1;
 }
 
-/* Subtitle/description */
 .cards.cards13 .cards-card-body h4,
 .cards.cards13 .cards-card-body h5,
 .cards.cards13 .cards-card-body h6,
@@ -595,7 +588,6 @@
   line-height: 1.5;
 }
 
-/* List in card body */
 .cards.cards13 .cards-card-body ul,
 .cards.cards13 .cards-card-body ol {
   color: #fff;
@@ -604,7 +596,6 @@
   padding-left: 18px;
 }
 
-/* Bottom caption/strip */
 .cards.cards13 .cards-card-body .caption,
 .cards.cards13 .cards-card-body .card-caption,
 .cards.cards13 .cards-card-body p:last-child {
@@ -623,7 +614,6 @@
   display: inline-block;
 }
 
-/* Hashtag/eyebrow styling */
 .cards.cards13 p,
 .cards.cards13 h6 {
   color: #ff2b2b;
@@ -633,7 +623,6 @@
   margin: 0 0 10px;
 }
 
-/* Responsive: Stack card columns vertically on small screens */
 @media (width <= 900px) {
   .cards.cards13 {
     align-items: flex-start;
@@ -668,4 +657,196 @@
     padding: 28px;
     align-items: flex-start;
   }
+}
+
+
+.cards.cards20 {
+  background: #26140c;
+  padding: 3.5rem 0;
+}
+
+.cards.cards20 .block {
+  margin: 0 auto;
+  max-width: 1200px;
+  background: transparent;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Two cards side-by-side (flex row), moderate gap, responsive fallback */
+.cards.cards20 ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .cards.cards20 ul {
+    flex-direction: column;
+    gap: 1.6rem;
+    align-items: center;
+  }
+}
+
+/* Card: rounded corners, shadow for separation, nearly blend into background */
+.cards.cards20 ul li {
+  background: #26140c;
+  border-radius: 28px;
+  box-shadow: 0 10px 40px 0 rgb(0 0 0 / 22%);
+  position: relative;
+  padding: 1.6rem 1.4rem 1.3rem;
+  min-width: 280px;
+  max-width: 410px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0;
+  border: none;
+}
+
+/* Focus/hover stronger shadow effect */
+.cards.cards20 ul li:focus-within,
+.cards.cards20 ul li:hover {
+  box-shadow: 0 16px 52px 0 rgb(0 0 0 / 24%);
+}
+
+/* Card body layout (column, center) */
+.cards.cards20 ul li .cards-card-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  z-index: 2;
+  padding: 0;
+}
+
+/* Top area (image/visual): reserved vertical space, compact */
+.cards.cards20 ul li .cards-card-body:first-child {
+  min-height: 82px;
+  width: 100%;
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Hide null placeholder */
+.cards.cards20 ul li .cards-card-body:first-child p {
+  display: none;
+}
+
+/* Decorative colored gradient (simulates accent, visually blends as "blur") */
+.cards.cards20 ul li .cards-card-body:first-child::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 82%;
+  max-width: 220px;
+  height: 54px;
+  border-radius: 24px;
+  filter: blur(12px);
+  opacity: 0.17;
+  z-index: 1;
+  background: linear-gradient(90deg, #a08fd1 50%, #a08fd1 51%, #89ded3 100%);
+}
+
+.cards.cards20 ul li:nth-child(2) .cards-card-body:first-child::before {
+  background: #89ded3;
+}
+
+/* If images are present, style them responsively */
+.cards.cards20 ul li .cards-card-body:first-child img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 14px rgb(0 0 0 / 13%);
+  background: #fff;
+  margin-bottom: -0.5rem;
+  margin-top: 0.3rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Product name styling */
+.cards.cards20 ul li .cards-card-body:last-child h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffe7b0;
+  text-align: center;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.18rem;
+  z-index: 3;
+}
+
+/* Product description styling */
+.cards.cards20 ul li .cards-card-body:last-child p {
+  font-size: 1rem;
+  color: #ffe7b0;
+  opacity: 0.92;
+  text-align: center;
+  margin: 0 0 0.09rem;
+  line-height: 1.5;
+  max-width: 96%;
+  z-index: 3;
+}
+
+/* Compact vertical content spacing */
+.cards.cards20 ul li .cards-card-body:last-child {
+  margin-top: 0.02rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Responsive tweaks for smallest screens */
+@media (width <= 600px) {
+  .cards.cards20 ul li {
+    max-width: 98vw;
+    min-width: 0;
+    padding: 0.9rem 0.6rem 0.8rem;
+  }
+
+  .cards.cards20 .block {
+    padding: 0 2vw;
+  }
+}
+
+/* Override button style within cards if present */
+.cards.cards20 ul li a.button,
+.cards.cards20 ul li button {
+  font-weight: 700;
+  border-radius: 2em;
+  padding: 0.5em 1.2em;
+  box-shadow: none;
+  background: #ffe7b0;
+  color: #2c160b;
+  border: none;
+  margin: 1em 0 0.2em;
+}
+
+/* Accessibility focus style */
+.cards.cards20 ul li:focus-within {
+  outline: 2px solid #ffe7b0;
+  outline-offset: 3px;
 }
