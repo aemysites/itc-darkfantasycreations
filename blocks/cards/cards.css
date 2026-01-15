@@ -61,7 +61,6 @@
   justify-self: center;
 }
 
-/* Hide empty/null items for perfect grid/centering */
 .cards.cards1 ul li:empty,
 .cards.cards1 .cards-card-body:empty,
 .cards.cards1 .cards-card-image:empty,
@@ -123,7 +122,6 @@
   line-height: 1.4;
 }
 
-/* Responsive stacking for mobile */
 @media (width <= 900px) {
   .cards.cards1 ul {
     grid-template-columns: 1fr;
@@ -145,5 +143,183 @@
   .cards.cards1 .cards-card-image img {
     width: 94vw;
     max-width: 310px;
+  }
+}
+
+
+.cards.cards3 {
+  background: #211007;
+  padding: 48px 0 56px;
+}
+
+/* Card grid: 3 columns, space between, responsive stack */
+.cards.cards3 ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 32px;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Card styling */
+.cards.cards3 li {
+  background: #24140e;
+  border-radius: 24px;
+  box-shadow: 0 8px 28px 0 rgb(0 0 0 / 11%);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  max-width: 320px;
+  width: 100%;
+  margin: 0;
+  transition: box-shadow 0.18s;
+}
+
+.cards.cards3 li:hover {
+  box-shadow: 0 14px 34px 0 rgb(0 0 0 / 20%);
+}
+
+/* Card body spacing */
+.cards.cards3 .cards-card-body {
+  padding-left: 24px;
+  padding-right: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Image/placeholder area: full width, rounded top */
+.cards.cards3 .cards-card-body:first-child {
+  background: #322015;
+  border-radius: 24px 24px 0 0;
+  min-height: 180px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* Centered placeholder text */
+.cards.cards3 .cards-card-body:first-child p {
+  color: #fff5e1;
+  font-size: 16px;
+  opacity: 0.38;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Content area below image */
+.cards.cards3 .cards-card-body:last-child {
+  padding-top: 20px;
+  padding-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Label + Ellipsis row: make first two p tags into a flex row */
+.cards.cards3 .cards-card-body:last-child p:nth-child(1),
+.cards.cards3 .cards-card-body:last-child p:nth-child(2) {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+}
+
+/* Create the horizontal row */
+
+.cards.cards3 .cards-card-body:last-child p:nth-child(2) {
+  background: #3c2a16;
+  color: #fff5e1;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 4px 16px;
+  letter-spacing: 0.5px;
+  margin-right: auto;
+  align-items: center;
+}
+
+.cards.cards3 .cards-card-body:last-child p:nth-child(1) {
+  color: #fff5e1;
+  font-size: 21px;
+  opacity: 0.7;
+  letter-spacing: 2px;
+  margin-left: auto;
+  margin-right: 0;
+  align-items: center;
+}
+
+/* For horizontal alignment, use flex on their shared container */
+
+/* Button container and card title */
+.cards.cards3 .cards-card-body:last-child .button-container {
+  margin: 18px 0 0;
+  display: block;
+  width: 100%;
+}
+
+.cards.cards3 .cards-card-body:last-child .button-container .button {
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: #fff5e1;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+  padding: 0;
+  margin: 0 0 10px;
+  border-radius: 0;
+  max-width: 100%;
+  line-height: 1.32;
+  letter-spacing: 0.04em;
+  white-space: normal;
+  text-overflow: clip;
+  overflow: visible;
+}
+
+/* Card time/info */
+.cards.cards3 .cards-card-body:last-child p:last-child {
+  color: #fff5e1;
+  font-size: 13px;
+  font-weight: 400;
+  opacity: 0.84;
+  margin-top: 6px;
+  margin-bottom: 0;
+  letter-spacing: 0.01em;
+}
+
+/* Responsive: stack cards on small screens */
+@media (width <= 900px) {
+  .cards.cards3 ul {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .cards.cards3 li {
+    max-width: 98vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cards.cards3 .cards-card-body {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .cards.cards3 .cards-card-body:first-child {
+    min-height: 120px;
   }
 }
