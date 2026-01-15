@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -158,12 +159,14 @@
 .columns.columns5 p {
   box-sizing: border-box;
 }
+
 .columns.columns5 .columns div:first-of-type {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
 }
+
 .columns.columns5 .columns div:first-of-type p:nth-child(1) {
   font-weight: 700;
   font-size: 2.1rem;
@@ -171,6 +174,7 @@
   margin-bottom: 1.2rem;
   letter-spacing: -0.01em;
 }
+
 .columns.columns5 .columns div:first-of-type p:nth-child(2),
 .columns.columns5 .columns div:first-of-type p:nth-child(3),
 .columns.columns5 .columns div:first-of-type p:nth-child(4) {
@@ -264,19 +268,17 @@
 }
 
 .columns.columns9 .block.columns-3-cols div div p:first-child {
-  /* Hide the small white label at the top of each card */
   display: none;
 }
 
 .columns.columns9 .block.columns-3-cols div div p {
-  /* Big colored label (now always first visible <p> in each card) */
   font-size: clamp(2.2rem, 6vw, 3.3rem);
   font-weight: 700;
   text-align: center;
   line-height: 1.08;
-  margin: 0 0 -2.1rem 0;
+  margin: 0 0 -2.1rem;
   letter-spacing: -0.015em;
-  word-break: break-word;
+  word-break: break-all;
   white-space: pre-line;
   position: relative;
   z-index: 1;
@@ -287,9 +289,11 @@
 .columns.columns9 .block.columns-3-cols div div:nth-child(1) p {
   color: #8DF6D2;
 }
+
 .columns.columns9 .block.columns-3-cols div div:nth-child(2) p {
   color: #A996D2;
 }
+
 .columns.columns9 .block.columns-3-cols div div:nth-child(3) p {
   color: #E13C33;
 }
@@ -309,7 +313,6 @@
   height: auto;
   display: block;
   margin: 0 auto;
-  /* Overlap image with label using negative margin */
   margin-top: -2.6rem;
 }
 
@@ -318,15 +321,70 @@
   box-shadow: none;
 }
 
-/* Responsive: stack cards vertically on mobile */
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .columns.columns9 .block.columns-3-cols div {
     grid-template-columns: 1fr;
     gap: 2.5rem;
     max-width: 540px;
   }
+
   .columns.columns9 .block.columns-3-cols div div {
     height: auto;
     padding: 2rem 0;
+  }
+}
+
+
+.columns-2-cols > div {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.columns-2-cols > div > div {
+  flex: 1 1 0;
+}
+
+.columns-2-cols > div > div:last-child {
+  background: rgb(245 233 167 / 8%);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgb(77 54 21 / 11%);
+  padding: 2rem;
+  min-height: 240px;
+  display: flex;
+  align-items: flex-end;
+}
+
+#fantasy-anytime-anywhere {
+  color: #f5e9a7;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+}
+
+#swipe-to-indulge {
+  color: #3a2c18;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.columns-wrapper {
+  background: url('blurry-gradient-bg.jpg') center center/cover no-repeat;
+  padding: 3rem 1.5rem;
+  border-radius: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (width <= 768px) {
+  .columns-2-cols > div {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .columns-2-cols > div > div:last-child {
+    min-height: 160px;
   }
 }
