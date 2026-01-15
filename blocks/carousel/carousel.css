@@ -154,7 +154,6 @@
 
 
 .carousel.carousel7 {
-  /* Improved vertical and horizontal centering for block */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -166,7 +165,6 @@
 
 .carousel.carousel7 .carousel-block-card,
 .carousel.carousel7 .carousel-slide-content {
-  /* Tighter, more focused card overlay */
   background: rgb(44 26 12 / 92%);
   border-radius: 22px;
   box-shadow: 0 8px 40px 0 rgb(64 32 11 / 17%);
@@ -248,7 +246,6 @@
   box-shadow: 0 6px 25px 0 rgb(64 32 11 / 13%);
 }
 
-/* Responsive: stack columns, fit card tighter, image smaller */
 @media (width <= 700px) {
   .carousel.carousel7 .carousel-block-card,
   .carousel.carousel7 .carousel-slide-content {
@@ -273,7 +270,6 @@
   }
 }
 
-/* Carousel indicators always bottom-center */
 .carousel.carousel7 .carousel-slide-indicators {
   position: absolute;
   left: 50%;
@@ -308,7 +304,15 @@
   background: #e94a2f;
 }
 
-/* Hide navigation buttons */
 .carousel.carousel7 .carousel-navigation-buttons {
+  display: none;
+}
+
+
+.carousel.carousel17 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel17 .carousel-slide-indicators {
   display: none;
 }
