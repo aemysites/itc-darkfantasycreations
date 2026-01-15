@@ -6,11 +6,11 @@
 
 .hero {
   position: relative;
-  padding: 48px 32px;
+  padding: 32px 0;
   min-height: 220px;
-  background: #FFE082;
+  background: #FFE08A;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 48px;
 }
@@ -206,9 +206,10 @@
 
 .hero > div:last-child > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+  gap: 40px;
 }
 
 .hero h2 {
@@ -350,15 +351,11 @@
   }
 }
 
-
-/* Ensure the hero block spans full width with no extra padding if needed */
-
-/* Main hero layout, side-by-side (image left, text right) */
 .hero.hero18 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center; /* Center the content group horizontally */
+  justify-content: center;
   width: 100vw;
   min-height: 520px;
   padding: 64px 0;
@@ -372,7 +369,6 @@
   overflow: hidden;
 }
 
-/* Add a subtle central glow for focus and depth */
 .hero.hero18::before {
   display: block;
   position: absolute;
@@ -389,7 +385,6 @@
   content: "";
 }
 
-/* The two main content columns */
 .hero.hero18 div {
   display: flex;
   flex-direction: column;
@@ -401,7 +396,6 @@
   z-index: 1;
 }
 
-/* Left column: if image is present as a DOM element, style it here */
 .hero.hero18 img,
 .hero.hero18 picture img {
   width: 100%;
@@ -414,7 +408,6 @@
   margin: 0 auto 0 0;
 }
 
-/* Right column: text block */
 .hero.hero18 div div {
   width: 100%;
   max-width: 520px;
@@ -427,7 +420,6 @@
   background: none;
 }
 
-/* Headline styles (inherit font, no hardcoded font) */
 .hero.hero18 div div h1,
 .hero.hero18 div div h2 {
   color: #d8b995;
@@ -439,7 +431,6 @@
   text-shadow: 0 2px 12px rgb(60 30 10 / 13%);
 }
 
-/* Subheadline styles */
 .hero.hero18 div div p {
   color: #e6d3b9;
   font-size: var(--body-font-size-s);
@@ -449,7 +440,6 @@
   text-shadow: 0 1px 8px rgb(60 30 10 / 9%);
 }
 
-/* Links in hero */
 .hero.hero18 a {
   color: #d8b995;
   text-decoration: underline;
@@ -460,7 +450,6 @@
   text-decoration: underline;
 }
 
-/* Responsive: stack columns vertically and center on smaller screens */
 @media (width <= 900px) {
   .hero.hero18 {
     flex-direction: column;
@@ -488,5 +477,71 @@
   .hero.hero18 picture img {
     max-width: 84vw;
     margin: 0 auto;
+  }
+}
+
+/* Content column layout */
+
+/* Text column */
+.hero > div:last-child > div > h2,
+.hero > div:last-child > div > p:first-of-type {
+  display: block;
+  flex: 0 0 auto;
+}
+
+/* Logo row */
+.hero > div:last-child > div > p:nth-child(3),
+.hero > div:last-child > div > p:nth-child(4),
+.hero > div:last-child > div > p:nth-child(5),
+.hero > div:last-child > div > p:nth-child(6) {
+  display: inline-block;
+  flex: 0 0 auto;
+  margin-right: 10px;
+}
+
+.hero > div:last-child > div img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  display: block;
+}
+
+/* Bottom text */
+.hero > div:last-child > div > p:last-child {
+  flex-basis: 100%;
+  width: 100%;
+  text-align: center;
+  margin-top: 32px;
+  font-size: 13px;
+  color: #222;
+}
+
+/* Heading and subtext */
+.hero > div:last-child > div > h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+.hero > div:last-child > div > p:first-of-type {
+  font-size: 14px;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+/* Responsive */
+@media (width <= 700px) {
+  .hero > div:last-child > div {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .hero > div:last-child > div > h2,
+  .hero > div:last-child > div > p:first-of-type {
+    text-align: center;
   }
 }
