@@ -520,3 +520,74 @@
   right: 5%;
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/07/Cashew_nut_icon.svg');
 }
+
+
+.columns.columns19 {
+  background: linear-gradient(90deg, #412113 0%, #3a1d12 100%);
+  padding: 5vw 7vw;
+  border-radius: 24px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.columns.columns19 > .columns-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Vertically centers columns */
+  justify-content: space-between;
+  gap: 4vw;
+}
+
+.columns.columns19 > .columns-inner > div {
+  flex: 1 1 0;
+  min-width: 280px;
+}
+
+.columns.columns19 h2 {
+  color: #FFF0CC;
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin: 0 0 1.1rem;
+}
+
+.columns.columns19 p {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 1.8rem;
+  line-height: 1.5;
+}
+
+.columns.columns19 .button,
+.columns.columns19 a.button {
+  background: #E94D1A;
+  color: #fff;
+  border-radius: 999px;
+  font-weight: bold;
+  padding: 0.75em 2.2em;
+  font-size: 1.15rem;
+  box-shadow: none;
+  border: none;
+  transition: background 0.2s;
+  margin-top: 0.6em;
+}
+
+.columns.columns19 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.columns.columns19 .columns-img-col img {
+  max-width: 340px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+@media (width <= 900px) {
+  .columns.columns19 > .columns-inner {
+    flex-direction: column;
+    gap: 2vw;
+  }
+}
